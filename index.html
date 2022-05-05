@@ -1,0 +1,114 @@
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="smartcontract.css" />
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="container__header">Student Document Management System</h1>
+      <label class="container__header2"
+        >Choose your account as a student/admin</label
+      >
+      <center>
+        <button class="ctrl-btn" id="ctrl-btn-admin">Admin</button>
+        <button class="ctrl-btn" id="ctrl-btn-student">Student</button>
+      </center>
+
+      <!--////////////////////////////-->
+
+      <center id="center-admin" class="hidden">
+        <div class="form-row">
+          <label class="container__label">Enrollment Number</label>
+          <input id="in-enrollmentno" type="text" />
+        </div>
+        <div class="form-row">
+          <label class="container__label">Semester Number</label>
+          <input id="in-semester" type="text" />
+        </div>
+        <!--///////////////////////////////////////////-->
+        <div class="form-row">
+          <label class="container__label">Subject</label>
+          <input id="in-sub1" type="text" />
+          <label class="container__label">Grade</label>
+          <input id="in-grade1" type="text" />
+        </div>
+        <div class="form-row">
+          <label class="container__label">Subject</label>
+          <input id="in-sub2" type="text" />
+          <label class="container__label">Grade</label>
+          <input id="in-grade2" type="text" />
+        </div>
+        <div class="form-row">
+          <label class="container__label">Subject</label>
+          <input id="in-sub3" type="text" />
+          <label class="container__label">Grade</label>
+          <input id="in-grade3" type="text" />
+        </div>
+        <div class="form-row">
+          <label class="container__label">Subject</label>
+          <input id="in-sub4" type="text" />
+          <label class="container__label">Grade</label>
+          <input id="in-grade4" type="text" />
+        </div>
+        <div class="form-row">
+          <label class="container__label">Subject</label>
+          <input id="in-sub5" type="text" />
+          <label class="container__label">Grade</label>
+          <input id="in-grade5" type="text" />
+        </div>
+        <div class="form-row">
+          <label class="container__label">Subject</label>
+          <input id="in-sub6" type="text" />
+          <label class="container__label">Grade</label>
+          <input id="in-grade6" type="text" />
+        </div>
+        <div class="form-row">
+          <label class="container__label">Subject</label>
+          <input id="in-sub7" type="text" />
+          <label class="container__label">Grade</label>
+          <input id="in-grade7" type="text" />
+        </div>
+        <div class="form-row">
+          <label class="container__label">Subject</label>
+          <input id="in-sub8" type="text" />
+          <label class="container__label">Grade</label>
+          <input id="in-grade8" type="text" />
+        </div>
+        <div class="form-row">
+          <label class="container__label">Subject</label>
+          <input id="in-sub9" type="text" />
+          <label class="container__label">Grade</label>
+          <input id="in-grade9" type="text" />
+        </div>
+        <div class="form-row">
+          <label class="container__label">Subject</label>
+          <input id="in-sub10" type="text" />
+          <label class="container__label">Grade</label>
+          <input id="in-grade10" type="text" />
+        </div>
+
+        <!--///////////////////////////////////////////-->
+        <button id="btnStore">Store</button>
+      </center>
+
+      <!--///////////////////////////////-->
+      <center id="center-student" class="hidden">
+        <label class="container__label"> Enter your Enrollment Number</label>
+        <input id="in-student-enrollmentno" type="text" />
+
+        <label class="container__label">Enter Semester</label>
+        <input id="in-student-semester" type="text" />
+        <button id="btn-CID">Get link to file</button>
+        <label
+          id="label-result"
+          class="container__label container__result"
+        ></label>
+      </center>
+      <!--////////////////////////////-->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/ipfs-core/dist/index.min.js"></script>
+    <!-- loading the minified version using jsDelivr -->
+    <script src="https://cdn.jsdelivr.net/npm/ipfs-http-client/dist/index.min.js"></script>
+    <script src="smartcontract.js"></script>
+  </body>
+</html>
