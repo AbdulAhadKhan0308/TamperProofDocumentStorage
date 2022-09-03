@@ -1,5 +1,4 @@
 "use strict";
-console.log("Here");
 
 const provider = window.ethereum;
 const web3 = new Web3(window.ethereum);
@@ -232,44 +231,42 @@ btnCID.addEventListener("click", async () => {
 });
 
 ///////////////////////////////////////
-/*btnCopyright.addEventListener("click", function () {
-  var songlyrics = inputcopyright.value;
-  console.log("LYRICS");
-  console.log(songlyrics);
-
-  contract.methods
-    .copyrightLyrics(songlyrics)
-    .send({ from: ethereum.selectedAddress }, (err, result) => {
-      if (err) console.log(err);
-      else {
-        alert(
-          "SUCCESS! YOU CAN GET TRANSACTION DETAILS BY VISITING etherscan.io PAGE OF THE CHAIN YOU ARE OPERATING ON"
-        );
-        console.log("Hash", result);
-      }
-    });
-});
-
-btnVerify.addEventListener("click", async function () {
-  var songlyrics = inputVerify.value;
-  const value = await contract.methods.checkLyrics(songlyrics).call();
-  console.log(value);
-  if (value) alert(`TRUE: This song is copyrighted.`);
-  else alert(`FALSE: This song is not copyrighted.`);
-});*/
-//////////////////////////////////////////
 
 async function addToRemoteNode(strmarksheet) {
-  const ipfs = window.IpfsHttpClient.create("https://ipfs.infura.io:5001");
+  const projectId = "28bGiIsgIUbPoQe4gIAMI0KTRKk";
+  const projectSecret = "2a2bd686d19072b41e7a91a7aad92275";
 
-  console.log(ipfs);
+  const auth = "Basic " + btoa(projectId + ":" + projectSecret);
 
-  console.log("getEndpointConfig()");
-  console.log(ipfs.getEndpointConfig());
+  console.log("auth", auth);
+
+  const ipfs = window.IpfsHttpClient.create({
+    host: "ipfs.infura.io",
+    port: 5001,
+    protocol: "https",
+    headers: {
+      authorization: auth,
+    },
+  });
 
   const file = await ipfs.add({ content: strmarksheet });
   console.log(file);
   return file;
+
+  //OLD IMPLEMENTATION : DOES NOT WORK NOW
+  //NEED TO PUT API KEY (PROJECT KEY)+SECRET KEY
+  //ELSE IT WILL SAY YOU ARE NOT AUTHORIZED
+
+  // const ipfs = window.IpfsHttpClient.create(
+  //   "https://ipfs.infura.io:5001/api/v0/add"
+  // );
+  // console.log(ipfs);
+  // console.log("getEndpointConfig()");
+  // console.log(ipfs.getEndpointConfig());
+
+  // const file = await ipfs.add({ content: strmarksheet });
+  // console.log(file);
+  // return file;
 }
 
 function inputtoJSON() {
@@ -306,19 +303,5 @@ function hashOnChain(rollsem, cid) {
       }
     });
 }
-/*addToRemoteNode("AAAAifkdls");
-  console.log(inSemester);
-  const node = await window.IpfsCore.create();
-  const version = await node.version();
-  console.log("Inside asyn main func");
-  console.log("Version", version.version);
-
-  const file = await node.add({
-    path: "hello.txt",
-    content: "Hello World 101",
-  });
-
-  console.log("Added file:", file.path, file.cid.toString());
-*/
 
 ///////////////////////////////////////////
